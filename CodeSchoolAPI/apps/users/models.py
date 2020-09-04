@@ -60,11 +60,13 @@ class UserProfile(models.Model):
     Users = models.OneToOneField(User, on_delete=models.CASCADE, related_name="ProfileOfUser")
 
     LEVELS = (
+        ('Entry', 'Entry'),
         ('Junior', 'Junior'),
         ('Middle', 'Middle'),
-        ('Senior', 'Senior')
+        ('Senior', 'Senior'),
     )
-    current_level = models.CharField(choices=LEVELS,max_length=50)
+    current_level = models.CharField(choices=LEVELS,max_length=50,
+                                     default='Entry')
     phone = models.IntegerField()
     timezone = models.CharField(max_length=50)
 
