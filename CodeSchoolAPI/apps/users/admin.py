@@ -5,7 +5,7 @@ from .models import User, UserProfile
 
 
 class UserAdmin(BaseUserAdmin):
-    list_display = ('email', 'is_staff', 'is_admin', 'is_active', 'is_student')
+    list_display = ('id','email', 'is_staff', 'is_admin', 'is_active', 'is_student')
     list_filter = ('is_admin','is_student', 'is_active')
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
@@ -18,8 +18,8 @@ class UserAdmin(BaseUserAdmin):
             'fields': ('email', 'password1', 'password2'),
         }),
     )
-    search_fields = ('email',)
-    ordering = ('email',)
+    search_fields = ('email',) # searching by email
+    ordering = ('id',) # making order by email
     filter_horizontal = ()
 
 class UserProfileAdmin(admin.ModelAdmin):
