@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'apps.utils',
     'apps.waitlist',
     'apps.lecture',
+    'rest_framework.authtoken',
 
 ]
 
@@ -113,3 +114,9 @@ MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'users.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
