@@ -57,6 +57,7 @@ class UserProfile(models.Model):
     image = models.ImageField(upload_to='profile-images')
     fb_profile = models.CharField(max_length=100)
     github_name = models.CharField(max_length=100)
+    Users = models.OneToOneField(User, on_delete=models.CASCADE, related_name="ProfileOfUser")
 
     LEVELS = (
         ('Junior', 'Junior'),
