@@ -23,7 +23,12 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 class UserProfileAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('user','preferred_name','current_level')
+    list_filter = ('user',)
+
+    search_fields = ('user','last_name' 'first_name', 'preferred_name','phone',)
+    ordering = ('user',)
+    filter_horizontal = ()
 
 admin.site.register(User, UserAdmin) # Registering User And Adding
         # filtering fields for User In UserAdmin

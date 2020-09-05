@@ -14,3 +14,9 @@ class UserSerializer(serializers.ModelSerializer):
             user.is_student = is_student
             user.save()
             return user
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ('first_name', 'last_name', 'preferred_name',
+        'image', 'fb_profile', 'github_name', 'current_level',
+        'phone', 'timezone',)
