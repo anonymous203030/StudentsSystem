@@ -1,9 +1,11 @@
 from django.test import TestCase
+from django.urls import reverse, resolve
 from rest_framework import status
 from social_core.tests.backends import test_username, test_email
 
 from .models import User, UserProfile
 from .serializers import UserSerializer, UserProfileSerializer
+from .views import UserProfileViewSet, UserViewSet
 
 
 class TestUser(TestCase):
