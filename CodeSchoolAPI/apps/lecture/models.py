@@ -2,6 +2,9 @@ from django.db import models
 
 from apps.utils.models import Time
 
+from apps.users.models import User
+
+
 class Lecture(Time, models.Model):
     title =  models.CharField(max_length=50)
     description = models.TextField()

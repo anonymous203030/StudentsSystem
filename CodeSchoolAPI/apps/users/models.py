@@ -1,7 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.db import models
 
-# Create your models here.
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None):
         if not email:
@@ -66,8 +66,6 @@ class UserProfile(models.Model):
     )
     current_level = models.CharField(choices=LEVELS,max_length=50,
                                      default='Entry')
-    phone = models.IntegerField()
-    timezone = models.CharField(max_length=50)
 
     def __str__(self):
         return f'{self.first_name}  {self.last_name}'

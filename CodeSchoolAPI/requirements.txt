@@ -1,0 +1,5 @@
+django-timezone-field
+django-debug-toolbar
+django-phonenumber-field
+django-rest-framework
+drf-yasg

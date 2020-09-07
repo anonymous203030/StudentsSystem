@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'debug_toolbar',
     'rest_framework',
     'apps.users',
@@ -26,7 +27,7 @@ INSTALLED_APPS = [
     'apps.waitlist',
     'apps.lecture',
     'rest_framework.authtoken',
-    'rest_framework_swagger',
+    'drf_yasg',
 
 ]
 
@@ -135,4 +136,17 @@ CSRF_COOKIE_DOMAIN = "128.0.0.1:8000"
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
+}
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+    # 'USE_SESSION_AUTH': True,
+    # 'LOGIN_URL':'admin/login/',
+    # 'LOGOUT_URL':'admin/logout/',
+    'REFETCH_SCHEMA_WITH_AUTH':True,
+    'REFETCH_SCHEMA_ON_LOGOUT':True,
 }

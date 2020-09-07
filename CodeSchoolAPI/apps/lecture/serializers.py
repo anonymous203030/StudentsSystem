@@ -9,3 +9,4 @@ class LectureSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'description', 'lecturer_name',
                   'date', 'duration', 'slides_url', 'created_at',
                   'updated_at', 'is_required')
+
