@@ -16,6 +16,12 @@ class LectureCreateViewSet(generics.CreateAPIView):
     serializer_class = LectureSerializer
     permission_classes = (IsAdminUser, )
 
+class LectureDeleteViewSet(generics.DestroyAPIView):
+    queryset = Lecture.objects.all()
+    serializer_class = LectureSerializer
+    permission_classes = (IsAdminUser, )
+
+
 class SubscriptionListViewSet(generics.ListAPIView):
     queryset = Subscription.objects.all()
     serializer_class = SubscriptionSerializer
@@ -27,4 +33,7 @@ class SubscriptionCreateViewSet(generics.CreateAPIView):
     serializer_class = SubscriptionSerializer
     permission_classes = (IsAuthenticated, )
 
-
+class SubscriptionDeleteViewSet(generics.DestroyAPIView):
+    queryset = Subscription.objects.all()
+    serializer_class = SubscriptionSerializer
+    permission_classes = (IsAuthenticated, )
