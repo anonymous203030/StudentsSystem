@@ -8,17 +8,17 @@ from .serializers import CommentSerializer
 
 
 class CommentCreateViewSet(generics.CreateAPIView):
-    queryset = Comment
+    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = (IsAuthenticated, )
 
 class CommentListViewSet(generics.ListAPIView):
-    queryset = Comment
+    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = (IsAuthenticated, )
 
 
 class CommentDetailViewSet(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Comment
+    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = (IsOwner, IsAdminUser, )
