@@ -1,11 +1,13 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import LectureViewSet
 
-router = routers.DefaultRouter()
-router.register(r'', LectureViewSet)
-
+from .views import LectureListViewSet, LectureCreateViewSet, SubscriptionListViewSet, \
+    SubscriptionCreateViewSet
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('list/', LectureListViewSet.as_view()),
+    path('create/', LectureCreateViewSet.as_view()),
+    path('subscription/list/', SubscriptionListViewSet.as_view()),
+    path('subscription/create/', SubscriptionCreateViewSet.as_view()),
+
 ]

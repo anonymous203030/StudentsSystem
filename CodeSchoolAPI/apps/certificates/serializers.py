@@ -6,4 +6,4 @@ from .models import Certificate
 class CertificateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Certificate
-        fields = ('name', 'description','UserCertificate', 'created_at', 'updated_at')
+        fields = ('name', 'description','UserCertificate','created_at')

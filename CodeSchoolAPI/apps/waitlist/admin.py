@@ -3,9 +3,9 @@ from django.contrib import admin
 from .models import WaitlistEntry
 
 class WaitlistEntryAdmin(admin.ModelAdmin):
-    list_display = ('first_name','last_name', 'updated_at',)
+    list_display = ('first_name','last_name', 'created_at',)
     search_fields = ('first_name', 'last_name',)
-    ordering = ('updated_at',)
+    ordering = ('created_at',)
     filter_horizontal = ()
 
 admin.site.register(WaitlistEntry, WaitlistEntryAdmin)

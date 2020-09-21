@@ -4,11 +4,8 @@ from django.db import models
 
 from django.db import models
 
-from apps.utils.models import Time
-# from apps.users.models import User
 
-
-class WaitlistEntry(Time,models.Model):
+class WaitlistEntry(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(verbose_name='email field',
@@ -24,6 +21,7 @@ class WaitlistEntry(Time,models.Model):
     level = models.CharField(choices=LEVELS, verbose_name='Class Level',
                              max_length=50,default='Entry')
     notes = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural = 'Waitlist Entrie'

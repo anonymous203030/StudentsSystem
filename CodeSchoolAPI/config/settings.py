@@ -23,7 +23,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.users',
     'apps.certificates',
-    'apps.utils',
     'apps.waitlist',
     'apps.lecture',
     'rest_framework.authtoken',
