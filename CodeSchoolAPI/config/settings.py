@@ -18,16 +18,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'debug_toolbar',
+    # apps
     'rest_framework',
     'apps.users',
     'apps.certificates',
     'apps.waitlist',
     'apps.lecture',
+    'apps.comments',
+
+    #3-rd
     'rest_framework.authtoken',
     'drf_yasg',
-
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
