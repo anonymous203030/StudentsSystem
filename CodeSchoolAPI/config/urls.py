@@ -21,15 +21,15 @@ schema_view = get_schema_view(
    permission_classes=(permissions.AllowAny,),
 )
 
-
+f = 'api/v1/'
 urlpatterns = [
     path('admin/', admin.site.urls),
     #
-    path('api/v1/users/', include('apps.users.urls')),
-    path('api/v1/certificates/', include('apps.certificates.urls')),
-    path('api/v1/lectures/', include('apps.lecture.urls')),
-    path('api/v1/waitlist/', include('apps.waitlist.urls')),
-    path('api/v1/comments/', include('apps.comments.urls')),
+    path(f'{f}users/', include('apps.users.urls')),
+    path(f'{f}certificates/', include('apps.certificates.urls')),
+    path(f'{f}lectures/', include('apps.lecture.urls')),
+    path(f'{f}waitlist/', include('apps.waitlist.urls')),
+    path(f'{f}comments/', include('apps.comments.urls')),
     #
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
