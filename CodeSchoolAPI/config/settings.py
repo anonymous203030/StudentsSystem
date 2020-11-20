@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_yasg',
     'debug_toolbar',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -145,9 +146,8 @@ SWAGGER_SETTINGS = {
             'type': 'basic'
         }
     },
-    # 'USE_SESSION_AUTH': True,
-    # 'LOGIN_URL':'admin/login/',
-    # 'LOGOUT_URL':'admin/logout/',
+    'LOGIN_URL':'admin/login/',
+    'LOGOUT_URL':'admin/logout/',
     'REFETCH_SCHEMA_WITH_AUTH':True,
     'REFETCH_SCHEMA_ON_LOGOUT':True,
 }
