@@ -6,6 +6,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
 
 
+
 class TestLecture(APITestCase):
     def setUp(self):
         user = get_user_model()
@@ -13,11 +14,7 @@ class TestLecture(APITestCase):
         self.user = user.objects.create_user(email='user@gmail.com', password=self.password)
         self.admin_user = user.objects.create_superuser(email='admin@gmail.com', password=self.password)
         self.client = APIClient()
-
-    def test_valid_lecture_create(self):
-        url_create = reverse('lecture_create')
-        self.client.force_authenticate(self.admin_user)
-        data = {
+        self.data = {
             'title': 'title',
             'description': 'description',
             'date': '2020-11-11',
@@ -26,15 +23,19 @@ class TestLecture(APITestCase):
             'subscriber': self.user.id,
             'admin_user': self.admin_user.id
         }
-        data1 = json.dumps(data)
+
+    def test_valid_lecture_create(self):
+        url_create = reverse('lecture_create')
+        self.client.force_authenticate(self.admin_user)
+        data1 = json.dumps(self.data)
         response = self.client.post(url_create, data1, content_type='application/json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.data['title'], data['title'])
-        self.assertEqual(response.data['description'], data['description'])
-        self.assertEqual(response.data['date'], data['date'])
-        self.assertEqual(response.data['duration'], data['duration'])
-        self.assertEqual(response.data['slides_url'], data['slides_url'])
-        self.assertEqual(response.data['admin_user'], data['admin_user'])
+        self.assertEqual(response.data['title'], self.data['title'])
+        self.assertEqual(response.data['description'], self.data['description'])
+        self.assertEqual(response.data['date'], self.data['date'])
+        self.assertEqual(response.data['duration'], self.data['duration'])
+        self.assertEqual(response.data['slides_url'], self.data['slides_url'])
+        self.assertEqual(response.data['admin_user'], self.data['admin_user'])
 
     def test_invalid_lecture_create(self):
         url_create = reverse('lecture_create')
