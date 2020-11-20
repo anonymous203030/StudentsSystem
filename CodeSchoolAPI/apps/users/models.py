@@ -54,7 +54,7 @@ class UserProfile(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     preferred_name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='profile-images',blank=True )
+    image = models.ImageField(upload_to='profile-images', blank=True)
     fb_profile = models.CharField(max_length=100, unique=True)
     github_name = models.CharField(max_length=100, unique=True)
 
