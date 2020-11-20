@@ -1,5 +1,4 @@
 from django.db import models
-
 from apps.users.models import User
 
 
@@ -12,7 +11,8 @@ class Lecture(models.Model):
     duration = models.IntegerField(help_text='Enter number of hours')
     slides_url = models.CharField(max_length=255)
     is_required = models.BooleanField(default=True)
-    is_subscribed = models.ManyToManyField(User,through='Subscription')
+    subscriber = models.ManyToManyField(User, through='Subscription', related_name='subscriber')
+    admin_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='administrator')
 
 
 class Subscription(models.Model):
@@ -24,7 +24,7 @@ class Subscription(models.Model):
         (5, 5)
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True )
     lecture = models.OneToOneField(Lecture, on_delete=models.CASCADE)
     rating = models.PositiveSmallIntegerField(choices=RATING_CHOICES)
     reacted_at = models.DateTimeField(auto_now_add=True)
