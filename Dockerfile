@@ -13,13 +13,10 @@ RUN apt-get update -y \
 && apt-get install -y libpq-dev python3-dev \
 && apt-get install -y systemd
 
-
+RUN mkdir /StudentsSystem
+WORKDIR /StudentsSystem
+COPY ./CodeSchoolAPI ./StudentsSystem
 
 COPY CodeSchoolAPI/requirements.txt /requirements.txt
 
-RUN pip3 install -r requirements.txt
-
-
-RUN mkdir /StudentsSystem
-WORKDIR /StudentsSystem
-COPY . ./StudentsSystem
+RUN pip3 install -r StudentsSystem/requirements.txt

@@ -1,12 +1,12 @@
 services:
   #web is a service name (can type what u want)
-  web:
+  news:
     build: .
     volumes:
       - .:/CodeSchoolAPI
     ports:
-      - "8000:8000"
-      - "9200:9200"
+#      - "8000:8000"
+      - "7000:9500"
     command: bash -c "
       ls &&
       cd StudentsSystem &&
