@@ -7,7 +7,7 @@ SECRET_KEY = '402^zmci83&7&ksluj342a+&7%o=z#0x6t(h@raq37v@euidmr'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -19,7 +19,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # apps
-    'rest_framework',
     'apps.users',
     'apps.certificates',
     'apps.waitlist',
@@ -27,10 +26,12 @@ INSTALLED_APPS = [
     'apps.comments',
 
     #3-rd
+    'rest_framework',
     'rest_framework.authtoken',
     'drf_yasg',
     'debug_toolbar',
     'django_filters',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
