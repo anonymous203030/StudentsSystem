@@ -4,19 +4,19 @@ ENV PYTHONUNBUFFERED 1
 MAINTAINER StudentsSystem
 
 
-RUN apt-get update -y \
-&& apt-get upgrade -y \
-&& apt-get install -y apt-utils \
-&& apt-get install gcc -y \
-&& apt-get clean \
-&& apt-get install -y python-setuptools \
-&& apt-get install -y libpq-dev python3-dev \
-&& apt-get install -y systemd
+RUN apt-get update -y
+RUN apt-get upgrade -y
+RUN apt-get install -y apt-utils
+RUN apt-get install gcc -y
+RUN apt-get clean \
+RUN apt-get install -y python-setuptools
+RUN apt-get install -y libpq-dev python3-dev
+RUN apt-get install -y systemd
 
-RUN mkdir /StudentsSystem
-WORKDIR /StudentsSystem
-COPY ./CodeSchoolAPI ./StudentsSystem
+COPY CodeSchoolAPI/requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+COPY . StudentsSystem/
 
-COPY CodeSchoolAPI/requirements.txt /requirements.txt
+EXPOSE 8030
 
-RUN pip3 install -r StudentsSystem/requirements.txt
+CMD ["python3", "CodeSchoolAPI/manage.py", "runserver", "0.0.0.0:8030"]

@@ -1,15 +1,13 @@
 services:
   #web is a service name (can type what u want)
-  news:
+  web:
     build: .
     volumes:
-      - .:/CodeSchoolAPI
+      - .:/StudentsSystem
     ports:
-#      - "8000:8000"
-      - "7000:9500"
+      - "8030:8030"
     command: bash -c "
       ls &&
-      cd StudentsSystem &&
-      python3 manage.py makemigrations &&
-      python3 manage.py migrate &&
-      python3 manage.py runserver 0.0.0.0:8000"
+      python3 CodeSchoolAPI/manage.py makemigrations &&
+      python3 CodeSchoolAPI/manage.py migrate &&
+      python3 CodeSchoolAPI/manage.py runserver 0.0.0.0:8030"
